@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Phone Hunter</title>
+
+    <!-- tailwind and daisy ui link start -->
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@3.6.2/dist/full.css"
+      rel="stylesheet"
+      type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- tailwind and daisy ui link end  -->
+  </head>
+
+  <body>
+    <header></header>
+    <main>
+      <section class="mx-auto mt-8">
+        <!-- search box -->
+        <div class="flex justify-center gap-5">
+          <!-- search 1 -->
+
+          <input
+            id="search-field"
+            type="text"
+            placeholder="search..."
+            class="input input-bordered w-full max-w-xs" />
+          <button
+            onclick="handleSearch()"
+            class="btn btn-success -ml-3 rounded-none rounded-tr-lg rounded-br-lg text-white">
+            Search
+          </button>
+          <br />
+        </div>
+
+        <!-- card -->
+        <div
+          id="phone-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-10 mt-8"></div>
+        <!-- loading spinner -->
+        <div class="text-center mt-20 hidden" id="loading-spinner">
+          <span class="loading loading-spinner loading-lg"></span>
+        </div>
+        <!-- show all btn -->
+        <div class="hidden text-center mt-10" id="show-all-container">
+          <button
+            class="btn bg-pink-500 btn-accent btn-accent text-white border-none outline-none mb-10">
+            Show More
+          </button>
+        </div>
+
+        <!-- error message -->
+        <div
+          id="error-container"
+          class="text-center text-2xl text-red-500 mt-10 font-semibold hidden"></div>
+        <!-- Open the modal using ID.showModal() method -->
+
+        <dialog
+          id="show_details_modal"
+          class="modal modal-bottom sm:modal-middle">
+          <form method="dialog" class="modal-box">
+            <div id="show-detail-container" class="text-justify"></div>
+            <!-- <h3 id="show-detail-phone-name" class="font-bold text-2xl"></h3> -->
+
+            <div class="modal-action">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn">Close</button>
+            </div>
+          </form>
+        </dialog>
+      </section>
+    </main>
+    <script src="js/phone.js"></script>
+  </body>
+</html>
